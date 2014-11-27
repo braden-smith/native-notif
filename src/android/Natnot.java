@@ -30,27 +30,30 @@ public class Natnot extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if (action.equals("createBasic")) {
-			String message = args.getString(0);
-			this.createBasic(message, callbackContext);
+			String contentTitle = args.getString(0);
+			String contentText = args.getString(1);
+			String contentTitleBig = args.getString(2);
+			String contentQR = args.getString(3);
+			this.createBasic(contentTitle, contentText, contentTitleBig, contentQR, callbackContext);
 			return true;
 		}
 		return false;
 	}
 
-	private void createBasic(String message, CallbackContext callbackContext) {
+	private void createBasic(String contentTitle,String contentText,String contentTitleBig,String contentQR, CallbackContext callbackContext) {
 		//Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
 		//vibrator.vibrate(1000);
-		genAlert(message);
-		if (message != null && message.length() > 0) {
-			callbackContext.success(message);
+		genAlert(contentTitle, contentText, contentTitleBig, contentQR);
+		if (contentQR != null && contentQR.length() > 0) {
+			callbackContext.success(contentQR);
 		} else {
 			callbackContext.error("Expected one non-empty string argument.");
 		}
 	}
 	
-	private void genAlert(String message) {
+	private void genAlert(String contentTitle,String contentText,String contentTitleBig,String contentQR) {
 		//prepare QR
-		String qrData = message;
+		String qrData = contentQR;
         	int qrCodeDimension = 250;
 		QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(qrData, null,
                 	Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString(), qrCodeDimension);
@@ -70,13 +73,13 @@ public class Natnot extends CordovaPlugin {
 			    new NotificationCompat.Builder(this.cordova.getActivity())
 			            .setSmallIcon(android.R.drawable.stat_notify_sync_noanim)
 			            .setLargeIcon(bitmap)
-			            .setContentTitle("TRS")
-			            .setContentText("Claim after immigration")
+			            .setContentTitle(contentTitle)
+			            .setContentText(contentText)
 			            .setContentIntent(viewPendingIntent)
 			            .setStyle(new NotificationCompat.BigPictureStyle()
 			                    .bigPicture(bitmap)
 			                    .bigLargeIcon(bitmap)
-			                    .setBigContentTitle("Tourist Refund Scheme"))
+			                    .setBigContentTitle(contentTitleBig))
 			;
 			// Get an instance of the NotificationManager service
 		        NotificationManagerCompat notificationManager =
