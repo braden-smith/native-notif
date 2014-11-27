@@ -16,6 +16,7 @@ import android.support.v4.app.NotificationCompat.WearableExtender;
 //import android.view.View;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.Context;
 
 /**
  * This class echoes a string called from JavaScript.
