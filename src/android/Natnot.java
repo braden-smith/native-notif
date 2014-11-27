@@ -83,7 +83,7 @@ public class Natnot extends CordovaPlugin {
 			            .setContentIntent(viewPendingIntent)
 			            .setStyle(new NotificationCompat.BigPictureStyle()
 			                    .bigPicture(bitmap)
-			                    .bigLargeIcon(bitmap)
+			                    //.bigLargeIcon(bitmap)
 			                    .setBigContentTitle(contentTitleBig))
 			;
 			// Get an instance of the NotificationManager service
