@@ -4,9 +4,9 @@
 	<name>Natnot</name>
 	<description>Native notifications</description>
 	<license>Apache 2.0</license>
-	<keywords>cordova,device</keywords>
+	<keywords>cordova,native,notification</keywords>
 	<js-module src="www/Natnot.js" name="Natnot">
-		<clobbers target="window.natnot" />
+		<clobbers target="natnot" />
 	</js-module>
 	
 	<platform name="android">
