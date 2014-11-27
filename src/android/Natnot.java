@@ -35,10 +35,6 @@ public class Natnot extends CordovaPlugin {
 			String contentText = arg_object.getString("contentText");
 			String contentTitleBig = arg_object.getString("contentTitleBig");
 			String contentQR = arg_object.getString("contentQR");
-			//String contentTitle = args.getString(0);
-			//String contentText = args.getString(1);
-			//String contentTitleBig = args.getString(2);
-			//String contentQR = args.getString(3);
 			this.createBasic(contentTitle, contentText, contentTitleBig, contentQR, callbackContext);
 			return true;
 		}
@@ -81,6 +77,7 @@ public class Natnot extends CordovaPlugin {
 			            .setContentTitle(contentTitle)
 			            .setContentText(contentText)
 			            .setContentIntent(viewPendingIntent)
+			            .setColor(Color.argb(1, 200, 3, 204)) 
 			            .setStyle(new NotificationCompat.BigPictureStyle()
 			                    .bigPicture(bitmap)
 			                    //.bigLargeIcon(bitmap)
