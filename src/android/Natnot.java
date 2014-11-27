@@ -46,7 +46,11 @@ public class Natnot extends CordovaPlugin {
 	private void genAlert(String message) {
 	        //build notification
 	        int notificationId = 001;
-	        Intent viewIntent = new Intent(this, Natnot.class);
+	        //Intent viewIntent = new Intent(this, Natnot.class);
+	        Context context=this.cordova.getActivity().getApplicationContext();
+    		//or Context context=cordova.getActivity().getApplicationContext();
+    		Intent intent=new Intent(context,Natnot.class);
+	        
 	        PendingIntent viewPendingIntent =
 	                PendingIntent.getActivity(this, 0, viewIntent, 0);
 	
