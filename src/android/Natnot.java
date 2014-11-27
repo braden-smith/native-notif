@@ -64,7 +64,7 @@ public class Natnot extends CordovaPlugin {
 	
 	        // Get an instance of the NotificationManager service
 	        NotificationManagerCompat notificationManager =
-	                NotificationManagerCompat.from(this);
+	                NotificationManagerCompat.from(this.cordova.getActivity());
 	        // Build the notification and issues it with notification manager.
 	        notificationManager.notify(notificationId, notificationBuilder.build());
 	}
