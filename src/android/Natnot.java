@@ -50,7 +50,7 @@ public class Natnot extends CordovaPlugin {
 	        //Intent viewIntent = new Intent(this, Natnot.class);
 	        //Context context=this.cordova.getActivity().getApplicationContext();
     		Context context=cordova.getActivity().getApplicationContext();
-    		Intent intent=new Intent(context,Natnot.class);
+    		Intent viewIntent=new Intent(context,Natnot.class);
 	        
 	        PendingIntent viewPendingIntent =
 	                PendingIntent.getActivity(this, 0, viewIntent, 0);
