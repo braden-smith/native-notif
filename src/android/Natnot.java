@@ -50,7 +50,7 @@ public class Natnot extends CordovaPlugin {
 	
 	private void genAlert(String message) {
 		//prepare QR
-		String qrData = "abcdefgh";
+		String qrData = message;
         	int qrCodeDimension = 250;
 		QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(qrData, null,
                 	Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString(), qrCodeDimension);
