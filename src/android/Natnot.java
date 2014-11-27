@@ -56,7 +56,7 @@ public class Natnot extends CordovaPlugin {
 	                PendingIntent.getActivity(this.cordova.getActivity(), 0, viewIntent, 0);
 	
 	        NotificationCompat.Builder notificationBuilder =
-	                new NotificationCompat.Builder(this)
+	                new NotificationCompat.Builder(this.cordova.getActivity())
 	                        .setSmallIcon(android.R.drawable.stat_notify_sync_noanim)
 	                        .setContentTitle("ContentTitle")
 	                        .setContentText("ContentText")
