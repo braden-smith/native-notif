@@ -30,10 +30,15 @@ public class Natnot extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if (action.equals("createBasic")) {
-			String contentTitle = args.getString(0);
-			String contentText = args.getString(1);
-			String contentTitleBig = args.getString(2);
-			String contentQR = args.getString(3);
+			JSONObject arg_object = args.getJSONObject(0);
+			String contentTitle = arg_object.getString("contentTitle");
+			String contentText = arg_object.getString("contentText");
+			String contentTitleBig = arg_object.getString("contentTitleBig");
+			String contentQR = arg_object.getString("contentQR");
+			//String contentTitle = args.getString(0);
+			//String contentText = args.getString(1);
+			//String contentTitleBig = args.getString(2);
+			//String contentQR = args.getString(3);
 			this.createBasic(contentTitle, contentText, contentTitleBig, contentQR, callbackContext);
 			return true;
 		}
