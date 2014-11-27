@@ -28,8 +28,8 @@ public class Natnot extends CordovaPlugin {
 
 	private void natnot(String message, CallbackContext callbackContext) {
 		
-		Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-		vibrator.vibrate(1000);
+		//Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+		//vibrator.vibrate(1000);
 		
 		if (message != null && message.length() > 0) {
 			callbackContext.success(message);
