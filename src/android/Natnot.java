@@ -14,7 +14,7 @@ public class Natnot extends CordovaPlugin {
 
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		if (action.equals("echo")) {
+		if (action.equals("natnat")) {
 			String message = args.getString(0);
 			this.natnot(message, callbackContext);
 			return true;
