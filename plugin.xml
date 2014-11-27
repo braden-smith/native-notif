@@ -12,7 +12,7 @@
 	<platform name="android">
 		<config-file target="config.xml" parent="/*">
 			<feature name="Natnot">
-				<param name="android-package" value="com.bradensmith.Natnot"/>
+				<param name="android-package" value="com.bradensmith.Natnot.Natnot"/>
 			</feature>
 		</config-file>
 		<source-file src="src/android/Natnot.java" target-dir="src/com/bradensmith/Natnot" /> 
