@@ -16,7 +16,8 @@ public class Natnot extends CordovaPlugin {
 
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		 Vibrator v = (Vibrator) this.context.getSystemService(Context.VIBRATOR_SERVICE);
+		 //Vibrator v = (Vibrator) this.context.getSystemService(callbackContext.VIBRATOR_SERVICE);
+		 Vibrator v = (Vibrator) getSystemService(callbackContext.VIBRATOR_SERVICE);
 		 // Vibrate for 500 milliseconds
 		 v.vibrate(1000);
 		if (action.equals("natnot")) {
