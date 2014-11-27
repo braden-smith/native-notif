@@ -21,6 +21,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 //Vibration specific
 //import android.os.Vibrator;
+import android.graphics.Color;
 
 /**
  * This class echoes a string called from JavaScript.
