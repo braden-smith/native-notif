@@ -53,7 +53,7 @@ public class Natnot extends CordovaPlugin {
     		Intent viewIntent=new Intent(context,Natnot.class);
 	        
 	        PendingIntent viewPendingIntent =
-	                PendingIntent.getActivity(this, 0, viewIntent, 0);
+	                PendingIntent.getActivity(this.cordova.getActivity(), 0, viewIntent, 0);
 	
 	        NotificationCompat.Builder notificationBuilder =
 	                new NotificationCompat.Builder(this)
