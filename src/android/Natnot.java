@@ -18,9 +18,6 @@ public class Natnot extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		
-		Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-		vibrator.vibrate(1000);
-
 		if (action.equals("natnot")) {
 			String message = args.getString(0);
 			this.natnot(message, callbackContext);
@@ -30,6 +27,10 @@ public class Natnot extends CordovaPlugin {
 	}
 
 	private void natnot(String message, CallbackContext callbackContext) {
+		
+		Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+		vibrator.vibrate(1000);
+		
 		if (message != null && message.length() > 0) {
 			callbackContext.success(message);
 		} else {
