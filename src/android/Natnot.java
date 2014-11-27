@@ -54,7 +54,6 @@ public class Natnot extends CordovaPlugin {
         	int qrCodeDimension = 250;
 		QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(qrData, null,
                 	Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString(), qrCodeDimension);
-                Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
                 
 	        //build notification
 	        int notificationId = 001;
@@ -64,18 +63,29 @@ public class Natnot extends CordovaPlugin {
 	        PendingIntent viewPendingIntent =
 	                PendingIntent.getActivity(this.cordova.getActivity(), 0, viewIntent, 0);
 	                
-		NotificationCompat.Builder notificationBuilder =
-		    new NotificationCompat.Builder(this.cordova.getActivity())
-		            .setSmallIcon(android.R.drawable.stat_notify_sync_noanim)
-		            .setLargeIcon(bitmap)
-		            .setContentTitle("TRS")
-		            .setContentText("Claim after immigration")
-		            .setContentIntent(viewPendingIntent)
-		            .setStyle(new NotificationCompat.BigPictureStyle()
-		                    .bigPicture(bitmap)
-		                    .bigLargeIcon(bitmap)
-		                    .setBigContentTitle("Tourist Refund Scheme"))
-		;
+		try {
+			Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
+			
+			NotificationCompat.Builder notificationBuilder =
+			    new NotificationCompat.Builder(this.cordova.getActivity())
+			            .setSmallIcon(android.R.drawable.stat_notify_sync_noanim)
+			            .setLargeIcon(bitmap)
+			            .setContentTitle("TRS")
+			            .setContentText("Claim after immigration")
+			            .setContentIntent(viewPendingIntent)
+			            .setStyle(new NotificationCompat.BigPictureStyle()
+			                    .bigPicture(bitmap)
+			                    .bigLargeIcon(bitmap)
+			                    .setBigContentTitle("Tourist Refund Scheme"))
+			;
+			// Get an instance of the NotificationManager service
+		        NotificationManagerCompat notificationManager =
+		                NotificationManagerCompat.from(this.cordova.getActivity());
+		        // Build the notification and issues it with notification manager.
+		        notificationManager.notify(notificationId, notificationBuilder.build());
+	        } catch (WriterException e) {
+	            e.printStackTrace();
+	        }
 
 		/*
 	        NotificationCompat.Builder notificationBuilder =
@@ -85,12 +95,7 @@ public class Natnot extends CordovaPlugin {
 	                        .setContentText("ContentText")
 	                        .setContentIntent(viewPendingIntent);
 	        */
-	
-	        // Get an instance of the NotificationManager service
-	        NotificationManagerCompat notificationManager =
-	                NotificationManagerCompat.from(this.cordova.getActivity());
-	        // Build the notification and issues it with notification manager.
-	        notificationManager.notify(notificationId, notificationBuilder.build());
+
 	}
 	
 }
