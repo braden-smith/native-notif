@@ -82,7 +82,7 @@ public class Natnot extends CordovaPlugin {
 			            .setSmallIcon(android.R.drawable.stat_notify_sync_noanim)
 			            //.setLargeIcon(bitmap)
 			            //.setLargeIcon(bitmapbg)
-			            .setLargeIcon(Bitmap.createBitmap(20, 20, null))
+			            .setLargeIcon(Bitmap.createBitmap(64, 64, Bitmap.Config.ARGB_8888))
 			            //.setLargeIcon(android.R.drawable.bgblue)
 			            //.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.bgblue))
 			            .setContentTitle(contentTitle)
