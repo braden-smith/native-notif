@@ -23,6 +23,7 @@ import com.google.zxing.WriterException;
 //import android.os.Vibrator;
 import android.graphics.Color;
 import android.graphics.BitmapFactory;
+import android.content.res.Resources;
 
 /**
  * This class echoes a string called from JavaScript.
