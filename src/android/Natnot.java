@@ -19,11 +19,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
-//Vibration specific
-//import android.os.Vibrator;
-import android.graphics.Color;
-import android.graphics.BitmapFactory;
-import android.content.res.Resources;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -45,8 +40,7 @@ public class Natnot extends CordovaPlugin {
 	}
 
 	private void createBasic(String contentTitle,String contentText,String contentTitleBig,String contentQR, CallbackContext callbackContext) {
-		//Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-		//vibrator.vibrate(1000);
+
 		genAlert(contentTitle, contentText, contentTitleBig, contentQR);
 		if (contentQR != null && contentQR.length() > 0) {
 			callbackContext.success(contentQR);
@@ -72,27 +66,17 @@ public class Natnot extends CordovaPlugin {
 	                
 		try {
 			Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
-			
-			//Resources res = context.getResources();
-			//Bitmap bitmapbg = BitmapFactory.decodeResource(res, R.drawable.bgblue);
-			//Bitmap bitmapbg = BitmapFactory.decodeResource(context.getResources(), R.drawable.bgblue);
-			Bitmap bitmapbg = Bitmap.createBitmap(64, 64, Bitmap.Config.ARGB_8888);
 
 			NotificationCompat.Builder notificationBuilder =
 			    new NotificationCompat.Builder(this.cordova.getActivity())
 			            .setSmallIcon(android.R.drawable.stat_notify_sync_noanim)
-			            //.setLargeIcon(bitmap)
-			            //.setLargeIcon(bitmapbg)
 			            .setLargeIcon(bitmap) //displayed left on ticker on device
-			            //.setLargeIcon(android.R.drawable.bgblue)
-			            //.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.bgblue))
 			            .setContentTitle(contentTitle)
 			            .setContentText(contentText)
 			            .setContentIntent(viewPendingIntent)
-			            //.setColor(Color.argb(1, 200, 3, 204)) 
 			            .setStyle(new NotificationCompat.BigPictureStyle()
 			                    .bigPicture(bitmap)
-			                    .bigLargeIcon(bitmapbg)
+			                    //.bigLargeIcon(bitmapbg)
 			                    .setBigContentTitle(contentTitleBig))
 			;
 			// Get an instance of the NotificationManager service
