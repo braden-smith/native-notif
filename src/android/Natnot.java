@@ -22,6 +22,7 @@ import com.google.zxing.WriterException;
 //Vibration specific
 //import android.os.Vibrator;
 import android.graphics.Color;
+import android.graphics.BitmapFactory;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -71,6 +72,7 @@ public class Natnot extends CordovaPlugin {
 		try {
 			Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
 			
+			Resources res = getResources();
 			Bitmap bitmapbg = BitmapFactory.decodeResource(res, R.drawable.bgblue);
 
 			NotificationCompat.Builder notificationBuilder =
