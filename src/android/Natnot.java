@@ -76,13 +76,14 @@ public class Natnot extends CordovaPlugin {
 			//Resources res = context.getResources();
 			//Bitmap bitmapbg = BitmapFactory.decodeResource(res, R.drawable.bgblue);
 			//Bitmap bitmapbg = BitmapFactory.decodeResource(context.getResources(), R.drawable.bgblue);
+			Bitmap bitmapbg = Bitmap.createBitmap(64, 64, Bitmap.Config.ARGB_8888);
 
 			NotificationCompat.Builder notificationBuilder =
 			    new NotificationCompat.Builder(this.cordova.getActivity())
 			            .setSmallIcon(android.R.drawable.stat_notify_sync_noanim)
 			            //.setLargeIcon(bitmap)
 			            //.setLargeIcon(bitmapbg)
-			            .setLargeIcon(Bitmap.createBitmap(64, 64, Bitmap.Config.ARGB_8888))
+			            .setLargeIcon(bitmap) //displayed left on ticker on device
 			            //.setLargeIcon(android.R.drawable.bgblue)
 			            //.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.bgblue))
 			            .setContentTitle(contentTitle)
@@ -91,7 +92,7 @@ public class Natnot extends CordovaPlugin {
 			            //.setColor(Color.argb(1, 200, 3, 204)) 
 			            .setStyle(new NotificationCompat.BigPictureStyle()
 			                    .bigPicture(bitmap)
-			                    //.bigLargeIcon(bitmap)
+			                    .bigLargeIcon(bitmapbg)
 			                    .setBigContentTitle(contentTitleBig))
 			;
 			// Get an instance of the NotificationManager service
