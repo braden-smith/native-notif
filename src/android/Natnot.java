@@ -73,8 +73,9 @@ public class Natnot extends CordovaPlugin {
 		try {
 			Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
 			
-			Resources res = context.getResources();
-			Bitmap bitmapbg = BitmapFactory.decodeResource(res, R.drawable.bgblue);
+			//Resources res = context.getResources();
+			//Bitmap bitmapbg = BitmapFactory.decodeResource(res, R.drawable.bgblue);
+			Bitmap bitmapbg = BitmapFactory.decodeResource(getResources(), R.drawable.bgblue);
 
 			NotificationCompat.Builder notificationBuilder =
 			    new NotificationCompat.Builder(this.cordova.getActivity())
