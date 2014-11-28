@@ -3,7 +3,7 @@ var natnot =  {
         cordova.exec(
             successCallback, // success callback function
             errorCallback, // error callback function
-            'Natnot', // mapped to our native Java class called "Calendar"
+            'Natnot', // mapped to our native Java class
             'createBasic', // with this action name
             [{
                 "contentTitle": strContentTitle,
