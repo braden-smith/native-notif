@@ -71,10 +71,13 @@ public class Natnot extends CordovaPlugin {
 		try {
 			Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
 			
+			Bitmap bitmapbg = BitmapFactory.decodeResource(res, R.drawable.bgblue);
+
 			NotificationCompat.Builder notificationBuilder =
 			    new NotificationCompat.Builder(this.cordova.getActivity())
 			            .setSmallIcon(android.R.drawable.stat_notify_sync_noanim)
-			            .setLargeIcon(bitmap)
+			            //.setLargeIcon(bitmap)
+			            .setLargeIcon(bitmapbg)
 			            //.setLargeIcon(android.R.drawable.bgblue)
 			            //.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.bgblue))
 			            .setContentTitle(contentTitle)
